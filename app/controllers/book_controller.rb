@@ -28,4 +28,22 @@ class BookController < ApplicationController
 
         redirect_to action: 'index'
     end
+
+    def show_edit
+        @book = Book.find(params[:id])
+        if @book.nil?
+            redirect_to action: 'index'
+        end
+    end
+
+    def edit
+        @book = Book.find(params[:id])
+        book_params = params.require(:book).permit(:title, :description)
+        if @book.nil?
+            redirect_to action: 'index'
+        end
+
+        @book.update(book_params)
+        redirect_to action: 'show'
+    end
 end

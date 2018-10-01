@@ -1,0 +1,18 @@
+<h3>Editar libro</h3>
+<form method="post" action="/libros/edit/<%= @book.id%>" >
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <div>
+    <label>Nombre </label>
+    <br>
+
+    <input type="text" value="<%=@book.title%>" name="book[title]" >
+    </div>
+    <div>
+    <label>Descripcion </label>
+    <br>
+    <textarea name="book[description]"><%= @book.description %></textarea>
+    </div>
+    <div>
+        <button type="submit">Editar</button>
+    </div>
+</form>

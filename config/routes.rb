@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   post 'libros/crear', to: 'book#create'
   get 'libros/mostrar/:id', to: 'book#show'
   post 'libros/borrar/:id', to: 'book#delete'
+  get 'libros/editar/:id', to: 'book#show_edit'
+  post 'libros/edit/:id', to: 'book#edit'
 end

@@ -12,6 +12,16 @@
     <br>
     <textarea name="book[description]"><%= @book.description %></textarea>
     </div>
+     <div>
+    <label> Autor </label>
+    <br>
+    <select name="book[author_id]">
+        <% for author in @authors%>
+        <option  value="<%= author.id%>">  <%= author.name %> </option>
+        <% end %>
+    </select>
+    </div>
+
     <div>
         <button type="submit">Editar</button>
     </div>

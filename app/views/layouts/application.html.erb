@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <div>
+        <h3> Hola <%= current_user.email %> </h3>
+        <a style="float: right" href="<%= destroy_user_session_path %>" data-method="delete"> Cerrar sesión </a>
+    </div>
+    <% else %>
+    <a href="<%= new_user_session_path %>"> Iniciar sesión </a>
+    <a href="<%= new_user_registration_path %>"> Registrarse </a>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
